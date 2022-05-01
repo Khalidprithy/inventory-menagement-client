@@ -1,0 +1,25 @@
+.main-logo{
+    height: 50px;
+    padding-right: 10px;
+}
+
+.link{
+    text-decoration: none;
+    color: rgb(129, 129, 129);
+    padding-left: 10px;
+}
+
+.link:hover{
+    color: black;
+}
+
+.active-link{
+    text-decoration: underline;
+    padding-left: 10px;
+    color:  #FF7E41;
+}
+
+.active-link:hover{
+    color: #FF7E41;
+
+}
