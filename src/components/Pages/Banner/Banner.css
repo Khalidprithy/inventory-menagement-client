@@ -1,0 +1,29 @@
+.banner-container{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
+    padding: 30px 5px;
+}
+
+.banner-card{
+    border: 0.5px solid rgb(197, 193, 193);
+    border-radius: 10px;
+    background: rgb(236, 235, 235);
+    padding: 10px;
+    height: 100px;
+    width: 150px;
+}
+.sales-icon{
+    color: #9AE8FF;
+    font-size: 30px;   
+}
+
+.money-icon{
+    color: #E08DB4;
+    font-size: 30px;
+}
+
+.profit-icon{
+    color: #78C091;
+    font-size: 30px;
+}
