@@ -1,25 +1,50 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { Link, useNavigate } from 'react-router-dom';
+import auth from '../../../firebase.init';
+import SocialLogin from '../SocialLogin/SocialLogin';
 import './Login.css'
 
 const Login = () => {
-    return (
-        <div className='login w-50 mx-auto'>
-            <div>
-                <form className=''>
-                    <h4>Sign In</h4>
-                    <p>Login to use all feature</p>
-                    <div className='d-flex flex-column mx-auto'>
-                        <input className='mb-2' type="email" placeholder='Email' required />
-                        <input className='mb-2' type="password" name="password" id="" placeholder='Password' required />
-                        <p>Forgot Password? <button className='btn btn-link text-decoration-none ps-0'>Reset Password</button> </p>
-                        <input className='btn btn-primary' type="button" value="Sign In" />
-                    </div>
-                    <p className='mt-4'>Create an Account <Link to='/signup' className='text-decoration-none'>Sign Up</Link></p>
-                </form>
+    const navigate = useNavigate();
 
+    const [
+        signInWithEmailAndPassword,
+        user,
+        loading,
+        error,
+    ] = useSignInWithEmailAndPassword(auth);
+
+
+    const handleLogin = e => {
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+        signInWithEmailAndPassword(email, password);
+    }
+
+    if (user) {
+        navigate('/dashboard')
+    }
+
+    return (
+        <div className='login mx-auto'>
+            <div className="container">
+                <h4 className='text-center'>Login</h4>
+                <p>Login to use all features</p>
+                <form className='d-flex flex-column'
+                >
+                    <input className='mb-2'
+                        type="email" name="email" id="" placeholder='Email' required />
+                    <input className='mb-2'
+                        type="password" name="password" id="" placeholder='Password' required />
+                    <p>Forgot Password? <button className='btn btn-link mb-1 p-0 text-decoration-none reset-text'>Reset</button></p>
+                    <input className='mb-2 login-btn'
+                        type="submit" value="Login" />
+                </form>
+                <p className=''>Don't have an Account? <Link to='/signup' className='text-decoration-none login-text'>Sign Up</Link></p>
+                <SocialLogin></SocialLogin>
             </div>
-        </div>
+        </div >
     );
 };
 

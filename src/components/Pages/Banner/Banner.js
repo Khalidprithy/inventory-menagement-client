@@ -15,21 +15,21 @@ const Banner = () => {
                 <RiNumbersFill className='sales-icon'></RiNumbersFill>
                 <div className='ms-2'>
                     <p>Total Sales</p>
-                    <h4>100.00</h4>
+                    <h4>$175</h4>
                 </div>
             </div>
             <div className='d-flex banner-card'>
                 <GiMoneyStack className='money-icon'></GiMoneyStack>
                 <div className='ms-2'>
                     <p>Total Cost</p>
-                    <h4>100.00</h4>
+                    <h4>$145</h4>
                 </div>
             </div>
             <div className='d-flex banner-card'>
                 <GiPiggyBank className='profit-icon'></GiPiggyBank>
                 <div className='ms-2'>
                     <p>Profits</p>
-                    <h4>100.00</h4>
+                    <h4>$45</h4>
                 </div>
             </div>
         </div>

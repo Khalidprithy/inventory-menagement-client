@@ -14,7 +14,7 @@
 }
 
 .active-link{
-    text-decoration: underline;
+    text-decoration: none;
     padding-left: 10px;
     color:  #FF7E41;
 }
