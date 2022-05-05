@@ -17,10 +17,10 @@
 .login-btn{
     border: none;
     border-radius: 5px;
-    padding: 5px 5px;
+    padding: 4px 4px;
 }
 
-.login-btn:hover{
+.login-btn-hover:hover{
     background-color: #32BDEA;
     color: white;
 }

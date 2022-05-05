@@ -38,8 +38,6 @@ const Header = () => {
                                 <NavLink className='link' to="/login">Login</NavLink>
                         }
                     </Nav>
-
-
                 </Navbar.Collapse>
             </Container>
         </Navbar>

@@ -2,23 +2,26 @@ import React, { useState } from 'react';
 import './SignUp.css'
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import SocialLogin from '../SocialLogin/SocialLogin';
+import Loading from '../../Shared/RequireAuth/Loading/Loading';
 
 const SignUp = () => {
     const navigate = useNavigate();
     const [showError, setShowError] = useState();
+    const [agree, setAgree] = useState(false);
 
+    const [updateProfile, updating, profileError] = useUpdateProfile(auth);
     const [
         createUserWithEmailAndPassword,
         user,
         loading,
         error,
-    ] = useCreateUserWithEmailAndPassword(auth);
+    ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
-    const handleCreateUser = e => {
+    const handleCreateUser = async e => {
         e.preventDefault();
-        const name = e.target.name.value;
+        const displayName = e.target.name.value;
         const email = e.target.email.value;
         const password = e.target.password.value;
         const confirmPassword = e.target.confirmPassword.value;
@@ -32,12 +35,19 @@ const SignUp = () => {
         }
         if (password.length < 8) {
             setShowError('Password must be 8 character or longer')
+            return;
         }
-        createUserWithEmailAndPassword(email, password)
+        await createUserWithEmailAndPassword(email, password)
+        await updateProfile({ displayName });
+        navigate('/dashboard')
     }
 
     if (user) {
-        navigate('/dashboard')
+        console.log(user)
+    }
+
+    if (loading || updating) {
+        return <Loading></Loading>
     }
 
     return (
@@ -60,11 +70,14 @@ const SignUp = () => {
                     <p>{error}</p>
 
                     <div>
-                        <input type="checkbox" name="terms" id="" />
+                        <input
+                            onClick={() => setAgree(!agree)}
+                            type="checkbox" name="terms" id="" />
                         <label className='ms-2 mb-2' htmlFor="terms">I agree with the terms of use </label>
                     </div>
-
-                    <input className='mb-2 login-btn'
+                    <input
+                        disabled={!agree}
+                        className={`mb-2 login-btn ${!agree ? '' : 'login-btn-hover'}`}
                         type="submit" value="Sign Up" />
                 </form>
                 <p className=''>Already have an Account? <Link to='/login' className='text-decoration-none login-text'>Login</Link></p>
