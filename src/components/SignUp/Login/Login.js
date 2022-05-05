@@ -15,6 +15,7 @@ const Login = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
+    let errorContainer;
 
     const [
         signInWithEmailAndPassword,
@@ -49,6 +50,10 @@ const Login = () => {
         return <Loading></Loading>
     }
 
+    if (error || passwordError) {
+        errorContainer = <p className='text-danger'>{error?.message || passwordError?.message}</p>
+    }
+
     return (
         <div className='login mx-auto'>
             <div className="container">
@@ -65,6 +70,7 @@ const Login = () => {
                     <p>Forgot Password? <button
                         onClick={handleResetPassword}
                         className='btn btn-link mb-1 p-0 text-decoration-none reset-text'>Reset</button></p>
+                    {errorContainer}
                     <input className='mb-2 login-btn login-btn-hover'
                         type="submit" value="Login" />
                 </form>
