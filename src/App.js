@@ -5,6 +5,7 @@ import Header from './components/Header/Header/Header';
 import Overview from './components/Overview/Overview';
 import Dashboard from './components/Pages/Dashboard/Dashboard';
 import Products from './components/Pages/Products/Products';
+import RequireAuth from './components/Shared/RequireAuth/RequireAuth';
 import Login from './components/SignUp/Login/Login';
 import SignUp from './components/SignUp/SignUp/SignUp';
 
@@ -15,7 +16,11 @@ function App() {
       <Routes>
         <Route path="/dashboard" element={<Dashboard></Dashboard>} ></Route>
         <Route path="/" element={<Dashboard></Dashboard>} ></Route>
-        <Route path="/products" element={<Products></Products>} ></Route>
+        <Route path="/products" element={
+          <RequireAuth>
+            <Products></Products>
+          </RequireAuth>
+        } ></Route>
         <Route path="/overview" element={<Overview></Overview>} ></Route>
         <Route path="/about" element={<About></About>} ></Route>
         <Route path="/login" element={<Login></Login>} ></Route>

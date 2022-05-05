@@ -3,13 +3,17 @@ import './SocialLogin.css'
 import { AiFillGoogleSquare, AiFillFacebook } from 'react-icons/ai';
 import auth from '../../../firebase.init';
 import { useSignInWithFacebook, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useNavigate } from 'react-router-dom';
 
 const SocialLogin = () => {
 
+    const navigate = useNavigate();
     const [signInWithFacebook, user, loading, error] = useSignInWithFacebook(auth);
     const [signInWithGoogle, googleUser, GoogleLoading, GoogleError] = useSignInWithGoogle(auth);
 
-
+    if (user || googleUser) {
+        navigate('/dashboard')
+    }
 
     return (
         <div>

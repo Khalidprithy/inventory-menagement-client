@@ -1,12 +1,14 @@
 import React from 'react';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import SocialLogin from '../SocialLogin/SocialLogin';
 import './Login.css'
 
 const Login = () => {
     const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
 
     const [
         signInWithEmailAndPassword,
@@ -17,13 +19,14 @@ const Login = () => {
 
 
     const handleLogin = e => {
+        e.preventDefault()
         const email = e.target.email.value;
         const password = e.target.password.value;
         signInWithEmailAndPassword(email, password);
     }
 
     if (user) {
-        navigate('/dashboard')
+        navigate(from, { replace: true });
     }
 
     return (
@@ -31,7 +34,9 @@ const Login = () => {
             <div className="container">
                 <h4 className='text-center'>Login</h4>
                 <p>Login to use all features</p>
-                <form className='d-flex flex-column'
+                <form
+                    onSubmit={handleLogin}
+                    className='d-flex flex-column'
                 >
                     <input className='mb-2'
                         type="email" name="email" id="" placeholder='Email' required />

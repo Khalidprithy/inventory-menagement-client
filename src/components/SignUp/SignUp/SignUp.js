@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './SignUp.css'
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
@@ -7,6 +7,7 @@ import SocialLogin from '../SocialLogin/SocialLogin';
 
 const SignUp = () => {
     const navigate = useNavigate();
+    const [showError, setShowError] = useState();
 
     const [
         createUserWithEmailAndPassword,
@@ -21,7 +22,17 @@ const SignUp = () => {
         const email = e.target.email.value;
         const password = e.target.password.value;
         const confirmPassword = e.target.confirmPassword.value;
-
+        if (user) {
+            setShowError('User already exists')
+            return;
+        }
+        if (password !== confirmPassword) {
+            setShowError('Password did not matched')
+            return;
+        }
+        if (password.length < 8) {
+            setShowError('Password must be 8 character or longer')
+        }
         createUserWithEmailAndPassword(email, password)
     }
 
@@ -45,6 +56,9 @@ const SignUp = () => {
                         type="password" name="password" id="" placeholder='Password' required />
                     <input className='mb-2'
                         type="password" name="confirmPassword" id="" placeholder='Confirm Password' required />
+                    <p className='text-danger p-0 m-0'>{showError}</p>
+                    <p>{error}</p>
+
                     <div>
                         <input type="checkbox" name="terms" id="" />
                         <label className='ms-2 mb-2' htmlFor="terms">I agree with the terms of use </label>
