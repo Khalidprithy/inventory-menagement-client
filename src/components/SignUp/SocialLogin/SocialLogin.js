@@ -4,7 +4,7 @@ import { AiFillGoogleSquare, AiFillFacebook } from 'react-icons/ai';
 import auth from '../../../firebase.init';
 import { useSignInWithFacebook, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
-import Loading from '../../Shared/RequireAuth/Loading/Loading';
+import Loading from '../../Shared/Loading/Loading';
 
 const SocialLogin = () => {
     const navigate = useNavigate();

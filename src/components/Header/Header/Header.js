@@ -23,17 +23,20 @@ const Header = () => {
 
                     <Nav className="me-auto">
                         <NavLink className={({ isActive }) => isActive ? 'active-link' : 'link'} to="/dashboard">Dashboard</NavLink>
-                        <NavLink className={({ isActive }) => isActive ? 'active-link' : 'link'} to="/products">Products</NavLink>
-                        <NavLink className={({ isActive }) => isActive ? 'active-link' : 'link'} to="/overview">Overview</NavLink>
-                        <NavLink className={({ isActive }) => isActive ? 'active-link' : 'link'} to="/shopping">Shopping</NavLink>
-                        <NavLink className={({ isActive }) => isActive ? 'active-link' : 'link'} to="/about">About</NavLink>
+                        <NavLink className={({ isActive }) => isActive ? 'active-link' : 'link'} to="/inventory">Inventory</NavLink>
+                        <NavLink className={({ isActive }) => isActive ? 'active-link' : 'link'} to="/manageinventory">Manage Inventory</NavLink>
+                        <NavLink className={({ isActive }) => isActive ? 'active-link' : 'link'} to="/blogs">Blogs</NavLink>
                     </Nav>
                     <Nav>
                         {
                             user ?
-                                <button
-                                    onClick={handleSignOut}
-                                    className='btn btn-link link'>Sign Out</button>
+                                <div className='d-flex align-items-center'>
+                                    <NavLink className={({ isActive }) => isActive ? 'active-link' : 'link'} to="/additem">Add Item</NavLink>
+                                    <NavLink className={({ isActive }) => isActive ? 'active-link' : 'link'} to="/myitems">My Items</NavLink>
+                                    <button
+                                        onClick={handleSignOut}
+                                        className='btn btn-link link'>Logout</button>
+                                </div>
                                 :
                                 <NavLink className='link' to="/login">Login</NavLink>
                         }

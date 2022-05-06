@@ -1,10 +1,12 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import About from './components/About/About';
 import Header from './components/Header/Header/Header';
-import Overview from './components/Overview/Overview';
+import AddItem from './components/Pages/AddItem/AddItem';
+import Blogs from './components/Pages/Blogs/Blogs';
 import Dashboard from './components/Pages/Dashboard/Dashboard';
-import Products from './components/Pages/Products/Products';
+import Inventory from './components/Pages/Inventory/Inventory';
+import ManageInventory from './components/Pages/ManageInventory/ManageInventory';
+import MyItems from './components/Pages/MyItems/MyItems';
 import RequireAuth from './components/Shared/RequireAuth/RequireAuth';
 import Login from './components/SignUp/Login/Login';
 import SignUp from './components/SignUp/SignUp/SignUp';
@@ -18,11 +20,14 @@ function App() {
         <Route path="/" element={<Dashboard></Dashboard>} ></Route>
         <Route path="/products" element={
           <RequireAuth>
-            <Products></Products>
+            <ManageInventory></ManageInventory>
           </RequireAuth>
         } ></Route>
-        <Route path="/overview" element={<Overview></Overview>} ></Route>
-        <Route path="/about" element={<About></About>} ></Route>
+        <Route path="/inventory" element={<Inventory></Inventory>} ></Route>
+        <Route path="/manageinventory" element={<ManageInventory></ManageInventory>} ></Route>
+        <Route path="/additem" element={<AddItem></AddItem>} ></Route>
+        <Route path="/myitems" element={<MyItems></MyItems>} ></Route>
+        <Route path="/blogs" element={<Blogs></Blogs>} ></Route>
         <Route path="/login" element={<Login></Login>} ></Route>
         <Route path="/signup" element={<SignUp></SignUp>} ></Route>
       </Routes>
