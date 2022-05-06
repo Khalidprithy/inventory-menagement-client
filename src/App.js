@@ -7,6 +7,7 @@ import Dashboard from './components/Pages/Dashboard/Dashboard';
 import Inventory from './components/Pages/Inventory/Inventory';
 import ManageInventory from './components/Pages/ManageInventory/ManageInventory';
 import MyItems from './components/Pages/MyItems/MyItems';
+import NotFound404 from './components/Shared/NotFound404/NotFound404';
 import RequireAuth from './components/Shared/RequireAuth/RequireAuth';
 import Login from './components/SignUp/Login/Login';
 import SignUp from './components/SignUp/SignUp/SignUp';
@@ -30,6 +31,7 @@ function App() {
         <Route path="/blogs" element={<Blogs></Blogs>} ></Route>
         <Route path="/login" element={<Login></Login>} ></Route>
         <Route path="/signup" element={<SignUp></SignUp>} ></Route>
+        <Route path="*" element={<NotFound404></NotFound404>} ></Route>
       </Routes>
     </div>
   );
