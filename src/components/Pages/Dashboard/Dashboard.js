@@ -9,7 +9,6 @@ const Dashboard = () => {
         <div>
             <Banner></Banner>
             <LoadProducts></LoadProducts>
-            <ShowProducts></ShowProducts>
         </div>
     );
 };

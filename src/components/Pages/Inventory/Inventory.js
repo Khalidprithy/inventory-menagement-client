@@ -19,6 +19,7 @@ const Inventory = () => {
                         <th scope="col">Quantity</th>
                         <th scope="col">Supplier</th>
                         <th scope="col">Action</th>
+                        <th scope="col">Status</th>
                     </tr>
                 </thead>
                 {

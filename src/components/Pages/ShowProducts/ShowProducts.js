@@ -32,6 +32,9 @@ const ShowProducts = ({ product }) => {
                         <button className='btn btn-link p-0'><AiFillDelete className='text-danger me-2'></AiFillDelete></button>
                     </div>
                 </td>
+                <td>
+                    <button className='deliver-btn'>Delivered</button>
+                </td>
             </tr>
         </tbody>
     );

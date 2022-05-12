@@ -19,7 +19,7 @@ const LoadProducts = () => {
                     <h4 className='ms-4'>Top Products</h4>
                     <button
                         onClick={handleShowAll}
-                        className='btn btn-link'>Show All <TiArrowRightThick></TiArrowRightThick></button>
+                        className='btn btn-link'>Manage Inventory <TiArrowRightThick></TiArrowRightThick></button>
                 </div>
                 <table className="table table-sm table-hover">
                     <thead>

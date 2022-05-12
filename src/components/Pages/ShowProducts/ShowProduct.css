@@ -7,3 +7,16 @@
 .description{
     font-size: 10px;
 }
+
+.deliver-btn{
+    background-color:#FF9770;
+    border: none;
+    border-radius: 5px;
+    padding: 4px 4px;
+    font-size: 12px;
+}
+
+.deliver-btn:hover{
+    background-color: #78C091;
+    color: white;
+}
