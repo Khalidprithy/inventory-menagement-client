@@ -15,7 +15,7 @@ const Header = () => {
     }
 
     return (
-        <Navbar className='header' collapseOnSelect expand="md" bg="light" variant="dark">
+        <Navbar className='header md:sticky-top' collapseOnSelect expand="md" bg="light" variant="dark">
             <Container>
                 <NavLink className='brand-name' to="/"> <img className='main-logo' src="https://i.postimg.cc/8PHG7NFk/M-M-logos-transparent.png" alt="" /></NavLink>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />

@@ -27,10 +27,9 @@ const ShowProducts = ({ product }) => {
                 <td>{product?.supplierName}</td>
                 <td>
                     <div>
-                        <button className='btn btn-link p-0'><AiFillDelete className='text-danger me-2'></AiFillDelete></button>
+                        <button className='btn btn-link p-0'><BiShowAlt className='text-success me-2'></BiShowAlt></button>
                         <button className='btn btn-link p-0'><AiFillEdit className='text-primary me-2'></AiFillEdit></button>
-                        <button className='btn btn-link p-0'><BiShowAlt className='text-success'></BiShowAlt></button>
-
+                        <button className='btn btn-link p-0'><AiFillDelete className='text-danger me-2'></AiFillDelete></button>
                     </div>
                 </td>
             </tr>

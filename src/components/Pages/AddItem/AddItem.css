@@ -1,0 +1,11 @@
+.add-btn{
+    background-color: #aeafaf;
+    border: none;
+    border-radius: 5px;
+    padding: 4px 4px;
+}
+
+.add-btn-hover:hover{
+    background-color: #32BDEA;
+    color: white;
+}
