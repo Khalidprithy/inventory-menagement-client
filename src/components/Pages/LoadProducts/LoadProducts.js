@@ -1,4 +1,5 @@
 import React from 'react';
+import './LoadProduct.css'
 import { useNavigate } from 'react-router-dom';
 import useProducts from '../../../hooks/useProducts';
 import ShowProducts from '../ShowProducts/ShowProducts';
@@ -19,9 +20,9 @@ const LoadProducts = () => {
                     <h4 className='ms-4'>Top Products</h4>
                     <button
                         onClick={handleShowAll}
-                        className='btn btn-link'>Manage Inventory <TiArrowRightThick></TiArrowRightThick></button>
+                        className='manage-btn'>Manage Inventory <TiArrowRightThick></TiArrowRightThick></button>
                 </div>
-                <table className="table table-sm table-hover">
+                <table className="table table-hover">
                     <thead>
                         <tr>
                             <th scope="col">Image</th>

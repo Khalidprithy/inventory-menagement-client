@@ -1,16 +1,29 @@
 import React from 'react';
 import useProducts from '../../../hooks/useProducts';
-import ShowProducts from '../ShowProducts/ShowProducts';
+import ShowAllProducts from '../ShowAllProduct/ShowAllProduct';
+import { AiOutlinePlus } from 'react-icons/ai';
+import { useNavigate } from 'react-router-dom';
 
 const Inventory = () => {
+
+    const navigate = useNavigate();
+
+    const handleAddProduct = () => {
+        navigate('/additem')
+    }
 
     const [products, setProducts] = useProducts();
 
 
     return (
         <div className='m-4'>
-            <h4>All Products</h4>
-            <table className="table table-sm table-hover">
+            <div className='d-flex justify-content-between align-items-center m-2' >
+                <h4 className='ms-4'>Product List</h4>
+                <button
+                    onClick={handleAddProduct}
+                    className='manage-btn'><AiOutlinePlus></AiOutlinePlus> Add Product</button>
+            </div>
+            <table className="table table-hover">
                 <thead>
                     <tr>
                         <th scope="col">Image</th>
@@ -23,10 +36,10 @@ const Inventory = () => {
                     </tr>
                 </thead>
                 {
-                    products.map(product => <ShowProducts
+                    products.map(product => <ShowAllProducts
                         key={product?._id}
                         product={product}
-                    ></ShowProducts>)
+                    ></ShowAllProducts>)
                 }
             </table>
         </div>

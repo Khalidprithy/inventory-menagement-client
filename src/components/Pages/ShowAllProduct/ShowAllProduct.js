@@ -1,18 +1,10 @@
 import React from 'react';
-import './ShowProduct.css'
-import { AiFillEdit, AiOutlinePlusSquare, AiOutlineMinusSquare } from 'react-icons/ai';
-import { useNavigate } from 'react-router-dom';
+import { AiFillDelete, AiFillEdit, AiOutlinePlusSquare, AiOutlineMinusSquare } from 'react-icons/ai';
+import { BiShowAlt } from 'react-icons/bi';
 
-const ShowProducts = ({ product }) => {
-    const { _id } = product;
-
-    const navigate = useNavigate();
-
-    const handleEditBtn = id => {
-        navigate(`/products/${id}`);
-    }
-
-
+const ShowAllProducts = ({ product }) => {
+    console.log(product);
+    // const { _id } = product;
     return (
         <tbody>
             <tr>
@@ -33,13 +25,18 @@ const ShowProducts = ({ product }) => {
                 </td>
                 <td>{product?.supplierName}</td>
                 <td>
-                    <button
-                        onClick={() => handleEditBtn(_id)}
-                        className='manage-btn'>Edit <AiFillEdit></AiFillEdit></button>
+                    <div>
+                        <button className='btn btn-link p-0'><BiShowAlt className='text-success me-2'></BiShowAlt></button>
+                        <button className='btn btn-link p-0'><AiFillEdit className='text-primary me-2'></AiFillEdit></button>
+                        <button className='btn btn-link p-0'><AiFillDelete className='text-danger me-2'></AiFillDelete></button>
+                    </div>
+                </td>
+                <td>
+                    <button className='deliver-btn'>Delivered</button>
                 </td>
             </tr>
         </tbody>
     );
 };
 
-export default ShowProducts;
+export default ShowAllProducts;

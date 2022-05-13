@@ -4,6 +4,7 @@ import Header from './components/Header/Header/Header';
 import AddItem from './components/Pages/AddItem/AddItem';
 import Blogs from './components/Pages/Blogs/Blogs';
 import Dashboard from './components/Pages/Dashboard/Dashboard';
+import EditProduct from './components/Pages/EditProduct/EditProduct';
 import Inventory from './components/Pages/Inventory/Inventory';
 import ManageInventory from './components/Pages/ManageInventory/ManageInventory';
 import MyItems from './components/Pages/MyItems/MyItems';
@@ -24,6 +25,12 @@ function App() {
             <ManageInventory></ManageInventory>
           </RequireAuth>
         } ></Route>
+        <Route path="/products/:id" element={
+          <RequireAuth>
+            <EditProduct></EditProduct>
+          </RequireAuth>
+        } ></Route>
+
         <Route path="/inventory" element={<Inventory></Inventory>} ></Route>
         <Route path="/manageinventory" element={<ManageInventory></ManageInventory>} ></Route>
         <Route path="/additem" element={<AddItem></AddItem>} ></Route>

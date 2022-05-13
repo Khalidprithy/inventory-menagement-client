@@ -1,0 +1,13 @@
+.manage-btn{
+    color: white;
+    font-size: 14px;
+    background-color:  #32BDEA;
+    border: none;
+    border-radius: 5px;
+    padding: 4px 4px;
+}
+
+.manage-btn:hover{
+    background-color: #09a3d6;
+    color: white;
+}
