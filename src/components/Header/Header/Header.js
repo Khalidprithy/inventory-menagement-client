@@ -32,7 +32,7 @@ const Header = () => {
                             user ?
                                 <div className='d-flex align-items-center'>
                                     <NavLink className={({ isActive }) => isActive ? 'active-link' : 'link'} to="/additem">Add Item</NavLink>
-                                    <NavLink className={({ isActive }) => isActive ? 'active-link' : 'link'} to="/myitems">My Items</NavLink>
+                                    <NavLink className={({ isActive }) => isActive ? 'active-link' : 'link'} to="/myproducts">My Products</NavLink>
                                     <button
                                         onClick={handleSignOut}
                                         className='btn btn-link link'>Logout</button>

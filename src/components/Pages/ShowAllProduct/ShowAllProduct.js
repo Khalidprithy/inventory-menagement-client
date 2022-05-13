@@ -2,7 +2,6 @@ import React from 'react';
 import { AiFillDelete, AiFillEdit, AiOutlinePlusSquare, AiOutlineMinusSquare } from 'react-icons/ai';
 import { BiShowAlt } from 'react-icons/bi';
 import { useNavigate } from 'react-router-dom';
-import useProducts from '../../../hooks/useProducts';
 
 const ShowAllProducts = ({ product, handleDeleteBtn }) => {
     const { _id } = product;
@@ -11,11 +10,6 @@ const ShowAllProducts = ({ product, handleDeleteBtn }) => {
     const handleEditBtn = id => {
         navigate(`/products/${id}`);
     }
-
-    const [products, setProducts] = useProducts();
-
-
-
 
     return (
         <tbody>
