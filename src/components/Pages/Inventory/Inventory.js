@@ -14,6 +14,21 @@ const Inventory = () => {
 
     const [products, setProducts] = useProducts();
 
+    const handleDeleteBtn = id => {
+        const proceed = window.confirm('Are you sure?');
+        if (proceed) {
+            const url = `http://localhost:5000/products/${id}`
+            fetch(url, {
+                method: 'DELETE',
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    const remaining = products.filter(product => product._id !== id);
+                    setProducts(remaining);
+                })
+        }
+    }
 
     return (
         <div className='m-4'>
@@ -39,6 +54,7 @@ const Inventory = () => {
                     products.map(product => <ShowAllProducts
                         key={product?._id}
                         product={product}
+                        handleDeleteBtn={handleDeleteBtn}
                     ></ShowAllProducts>)
                 }
             </table>

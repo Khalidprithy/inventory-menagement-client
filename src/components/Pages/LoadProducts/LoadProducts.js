@@ -13,6 +13,7 @@ const LoadProducts = () => {
     }
 
     const [products, setProducts] = useProducts();
+
     return (
         <div className='border rounded m-2'>
             <div>

@@ -4,7 +4,21 @@ import './AddItem.css'
 
 const AddItem = () => {
     const { register, handleSubmit } = useForm();
-    const onSubmit = data => console.log(data);
+    const onSubmit = data => {
+        console.log(data)
+        const url = `http://localhost:5000/products`;
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+            .then(res => res.json())
+            .then(result => {
+                console.log(result);
+            })
+    };
     return (
         <div className='container my-4 text-center'>
             <h4>Add a new product</h4>

@@ -2,15 +2,21 @@ import React from 'react';
 import { AiFillDelete, AiFillEdit, AiOutlinePlusSquare, AiOutlineMinusSquare } from 'react-icons/ai';
 import { BiShowAlt } from 'react-icons/bi';
 import { useNavigate } from 'react-router-dom';
+import useProducts from '../../../hooks/useProducts';
 
-const ShowAllProducts = ({ product }) => {
+const ShowAllProducts = ({ product, handleDeleteBtn }) => {
     const { _id } = product;
-
     const navigate = useNavigate();
 
     const handleEditBtn = id => {
         navigate(`/products/${id}`);
     }
+
+    const [products, setProducts] = useProducts();
+
+
+
+
     return (
         <tbody>
             <tr>
@@ -24,7 +30,7 @@ const ShowAllProducts = ({ product }) => {
                 <td>{product?.price}</td>
                 <td>
                     <div className='d-flex align-items-center'>
-                        <p>{product?.quantitiy}</p>
+                        <p>{product?.quantity}</p>
                         <button className='btn btn-link p-0'><AiOutlinePlusSquare className='text-dark mb-3 '></AiOutlinePlusSquare> </button>
                         <button className='btn btn-link p-0'><AiOutlineMinusSquare className='text-dark mb-3'></AiOutlineMinusSquare> </button>
                     </div>
@@ -32,11 +38,15 @@ const ShowAllProducts = ({ product }) => {
                 <td>{product?.supplierName}</td>
                 <td>
                     <div>
-                        <button className='btn btn-link p-0'><BiShowAlt className='text-success me-2'></BiShowAlt></button>
+                        <button className='btn btn-link p-0'><BiShowAlt
+                            onClick={() => handleEditBtn(_id)}
+                            className='text-success me-2'></BiShowAlt></button>
                         <button className='btn btn-link p-0'><AiFillEdit
                             onClick={() => handleEditBtn(_id)}
                             className='text-primary me-2'></AiFillEdit></button>
-                        <button className='btn btn-link p-0'><AiFillDelete className='text-danger me-2'></AiFillDelete></button>
+                        <button className='btn btn-link p-0'><AiFillDelete
+                            onClick={() => handleDeleteBtn(_id)}
+                            className='text-danger me-2'></AiFillDelete></button>
                     </div>
                 </td>
                 <td>
