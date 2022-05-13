@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+import './EditProduct.css'
+import { AiFillEdit } from 'react-icons/ai';
 
 const EditProduct = () => {
 
@@ -14,26 +16,36 @@ const EditProduct = () => {
     }, [])
 
     return (
-        <div>
-            <table className="table table-hover">
-                <thead>
-                    <tr>
-                        <th scope="col">Image</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Price</th>
-                        <th scope="col">Quantity</th>
-                        <th scope="col">Supplier</th>
-                        <th scope="col">Action</th>
-                    </tr>
-                </thead>
-                <tr>
-                    <td><img className='row-img' src={product.picture} alt="" /></td>
-                    <td>{product.name}</td>
-                    <td>{product.price}</td>
-                    <td>{product.quantity}</td>
-                    <td>{product.supplierName}</td>
-                </tr>
-            </table>
+        <div className='container m-3 mx-auto'>
+            <div className='d-flex align-items-center justify-content-between mb-2'>
+                <h4>Product Details</h4>
+                <Link className='btn-style' to='/inventory'>Manage Inventories <AiFillEdit></AiFillEdit> </Link>
+            </div>
+            <div className="card mb-3">
+                <div className="row g-0">
+                    <div className="col-md-4">
+                        <img src={product.picture} className="img-fluid rounded-start" alt="..." />
+                    </div>
+                    <div className="col-md-8">
+                        <div className="card-body">
+                            <p>ID: {product._id}</p>
+                            <h5 className="card-title">{product.name}</h5>
+                            <p className="card-text">{product.description}</p>
+                            <p>Brand: {product.supplierName}</p>
+                            <p>Price: {product.price}</p>
+
+                            <form action="">
+                                <div className='d-flex align-items-center'>
+                                    <p>Quantity: {product.quantity} +</p>
+                                    <input className='w-25 mb-3 ms-2' type="text" />
+                                    <input className='btn-style mb-3' type="submit" value="Restock" />
+                                </div>
+                            </form>
+                            <button className='btn-style'>Delivered</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };

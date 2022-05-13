@@ -1,10 +1,16 @@
 import React from 'react';
 import { AiFillDelete, AiFillEdit, AiOutlinePlusSquare, AiOutlineMinusSquare } from 'react-icons/ai';
 import { BiShowAlt } from 'react-icons/bi';
+import { useNavigate } from 'react-router-dom';
 
 const ShowAllProducts = ({ product }) => {
-    console.log(product);
-    // const { _id } = product;
+    const { _id } = product;
+
+    const navigate = useNavigate();
+
+    const handleEditBtn = id => {
+        navigate(`/products/${id}`);
+    }
     return (
         <tbody>
             <tr>
@@ -27,7 +33,9 @@ const ShowAllProducts = ({ product }) => {
                 <td>
                     <div>
                         <button className='btn btn-link p-0'><BiShowAlt className='text-success me-2'></BiShowAlt></button>
-                        <button className='btn btn-link p-0'><AiFillEdit className='text-primary me-2'></AiFillEdit></button>
+                        <button className='btn btn-link p-0'><AiFillEdit
+                            onClick={() => handleEditBtn(_id)}
+                            className='text-primary me-2'></AiFillEdit></button>
                         <button className='btn btn-link p-0'><AiFillDelete className='text-danger me-2'></AiFillDelete></button>
                     </div>
                 </td>
