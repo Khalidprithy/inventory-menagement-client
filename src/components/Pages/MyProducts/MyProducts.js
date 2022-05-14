@@ -11,7 +11,7 @@ const MyProducts = () => {
             const email = user.email;
             const url = `http://localhost:5000/products?email=${email}`;
             const { data } = await axios.get(url);
-            setMyProducts(data)
+            setMyProducts(data);
         }
         getMyProducts()
     }, [])

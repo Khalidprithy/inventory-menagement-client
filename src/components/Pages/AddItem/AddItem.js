@@ -22,7 +22,6 @@ const AddItem = () => {
 
             })
 
-
         // const url = `http://localhost:5000/products`;
         // fetch(url, {
         //     method: 'POST',
@@ -48,8 +47,8 @@ const AddItem = () => {
                 onSubmit={handleSubmit(onSubmit)}
                 className='d-flex flex-column w-50 mx-auto'>
 
-                <input className='mb-3' value={user?.displayName} {...register("userName", { required: true })} />
-                <input className='mb-3' value={user?.email} {...register("userEmail", { required: true })} />
+                <input className='mb-3' value={user?.displayName} {...register("name", { required: true })} />
+                <input className='mb-3' value={user?.email} {...register("email", { required: true })} />
                 <input className='mb-3' placeholder='Product Name' {...register("name", { required: true, maxLength: 20 })} />
                 <input className='mb-3' placeholder='Supplier name' {...register("supplierName")} />
                 <input className='mb-3' placeholder='Price' type="number" {...register("price")} />
