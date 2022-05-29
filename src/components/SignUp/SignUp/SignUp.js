@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './SignUp.css'
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import SocialLogin from '../SocialLogin/SocialLogin';
@@ -8,6 +8,8 @@ import Loading from '../../Shared/Loading/Loading';
 
 const SignUp = () => {
     const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
     const [showError, setShowError] = useState();
     const [agree, setAgree] = useState(false);
 
@@ -43,7 +45,7 @@ const SignUp = () => {
     }
 
     if (user) {
-        console.log(user)
+        navigate(from, { replace: true });
     }
 
     if (loading || updating) {

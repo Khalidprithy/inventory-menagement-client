@@ -1,8 +1,9 @@
 .banner-container{
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 5px;
     padding: 30px 5px;
+    margin: 10px;
 }
 
 .banner-card{
@@ -31,3 +32,13 @@
     color: #78C091;
     font-size: 30px;
 }
+.invest-icon{
+    color: #b33853;
+    font-size: 30px;
+}
+
+@media only screen and (max-width: 600px) {
+    .banner-container {
+      grid-template-columns: 1fr;
+    }
+  }

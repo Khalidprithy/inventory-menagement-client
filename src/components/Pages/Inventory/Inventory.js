@@ -38,14 +38,14 @@ const Inventory = () => {
                     onClick={handleAddProduct}
                     className='manage-btn'><AiOutlinePlus></AiOutlinePlus> Add Product</button>
             </div>
-            <table className="table table-hover">
+            <table className="table">
                 <thead>
                     <tr>
                         <th scope="col">Image</th>
-                        <th scope="col">Name</th>
+                        <th className='d-none d-md-block' scope="col">Name</th>
                         <th scope="col">Price</th>
                         <th scope="col">Quantity</th>
-                        <th scope="col">Supplier</th>
+                        <th className='d-none d-md-block' scope="col">Supplier</th>
                         <th scope="col">Action</th>
                     </tr>
                 </thead>

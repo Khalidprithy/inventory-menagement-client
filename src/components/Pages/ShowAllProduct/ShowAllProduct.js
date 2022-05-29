@@ -15,7 +15,7 @@ const ShowAllProducts = ({ product, handleDeleteBtn }) => {
         <tbody>
             <tr>
                 <td><img className='row-img' src={product?.picture} alt="" /></td>
-                <td>
+                <td className='d-none d-md-block'>
                     <div className='container'>
                         <p className='m-0'>{product?.name}</p>
                         <p className='description'>{product?.description}</p>
@@ -26,7 +26,9 @@ const ShowAllProducts = ({ product, handleDeleteBtn }) => {
                     <p>{product?.quantity}</p>
 
                 </td>
-                <td>{product?.supplierName}</td>
+                <td className='d-none d-md-block border-bottom-0'>
+                    <p>{product?.supplierName}</p>
+                </td>
                 <td>
                     <div className='d-flex'>
                         <button className='btn btn-link p-0'><BiShowAlt

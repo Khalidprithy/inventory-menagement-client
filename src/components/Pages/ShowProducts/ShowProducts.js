@@ -15,8 +15,8 @@ const ShowProducts = ({ product }) => {
         <tbody>
             <tr>
                 <td><img className='row-img' src={product?.picture} alt="" /></td>
-                <td>
-                    <div className='container'>
+                <td className='d-none d-md-block'>
+                    <div className='container '>
                         <p className='m-0'>{product?.name}</p>
                         <p className='description'>{product?.description}</p>
                     </div>
@@ -27,7 +27,7 @@ const ShowProducts = ({ product }) => {
                         <p>{product?.quantity}</p>
                     </div>
                 </td>
-                <td>{product?.supplierName}</td>
+                <td className='d-none d-md-block border-bottom-0'>{product?.supplierName}</td>
                 <td>
                     <button
                         onClick={() => handleEditBtn(_id)}

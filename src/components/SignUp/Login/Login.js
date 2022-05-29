@@ -6,6 +6,7 @@ import SocialLogin from '../SocialLogin/SocialLogin';
 import './Login.css'
 import Loading from '../../Shared/Loading/Loading';
 import toast from 'react-hot-toast';
+import axios from 'axios';
 
 const Login = () => {
     const emailRef = useRef('');
@@ -24,11 +25,15 @@ const Login = () => {
         auth
     );
 
-    const handleLogin = e => {
+    const handleLogin = async e => {
         e.preventDefault()
         const email = e.target.email.value;
         const password = e.target.password.value;
-        signInWithEmailAndPassword(email, password);
+        await signInWithEmailAndPassword(email, password);
+        const { data } = await axios.post('http://localhost:5000/login', { email });
+        console.log(data)
+        localStorage.setItem('accessToken', data.accessToken);
+        navigate(from, { replace: true });
     }
 
     const handleResetPassword = async e => {

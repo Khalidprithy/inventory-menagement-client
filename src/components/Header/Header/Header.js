@@ -15,7 +15,7 @@ const Header = () => {
     }
 
     return (
-        <Navbar className='header md:sticky-top' collapseOnSelect expand="md" bg="light" variant="dark">
+        <Navbar className='header md:sticky-top' collapseOnSelect expand="md" sticky='top' bg="light" variant="dark">
             <Container>
                 <NavLink className='brand-name' to="/"> <img className='main-logo' src="https://i.postimg.cc/8PHG7NFk/M-M-logos-transparent.png" alt="" /></NavLink>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -25,13 +25,17 @@ const Header = () => {
                         <NavLink className={({ isActive }) => isActive ? 'active-link' : 'link'} to="/dashboard">Dashboard</NavLink>
                         <NavLink className={({ isActive }) => isActive ? 'active-link' : 'link'} to="/inventory">Inventory</NavLink>
                         <NavLink className={({ isActive }) => isActive ? 'active-link' : 'link'} to="/blogs">Blogs</NavLink>
+                        {
+                            user && <>
+                                <NavLink className={({ isActive }) => isActive ? 'active-link' : 'link'} to="/additem">Add Item</NavLink>
+                                <NavLink className={({ isActive }) => isActive ? 'active-link' : 'link'} to="/myproducts">My Products</NavLink>
+                            </>
+                        }
                     </Nav>
                     <Nav>
                         {
                             user ?
                                 <div className='d-flex align-items-center'>
-                                    <NavLink className={({ isActive }) => isActive ? 'active-link' : 'link'} to="/additem">Add Item</NavLink>
-                                    <NavLink className={({ isActive }) => isActive ? 'active-link' : 'link'} to="/myproducts">My Products</NavLink>
                                     <button
                                         onClick={handleSignOut}
                                         className='btn btn-link link'>Logout</button>

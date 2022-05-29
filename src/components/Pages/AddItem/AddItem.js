@@ -5,6 +5,7 @@ import './AddItem.css'
 import auth from '../../../firebase.init';
 import axios from 'axios';
 import toast from 'react-hot-toast';
+import Loading from '../../Shared/Loading/Loading';
 
 const AddItem = () => {
     const [user, loading, error] = useAuthState(auth);
@@ -15,26 +16,14 @@ const AddItem = () => {
             .then(response => {
                 const { data } = response;
                 if (data.insertedId) {
-                    toast('Your product added')
+                    toast.success('Your product added')
                 }
 
             })
 
-        // const url = `http://localhost:5000/products`;
-        // fetch(url, {
-        //     method: 'POST',
-        //     headers: {
-        //         'content-type': 'application/json'
-        //     },
-        //     body: JSON.stringify(data)
-        // })
-        //     .then(res => res.json())
-        //     .then(result => {
-        //         console.log(result);
-        //     })
-        // if (data.insertedId) {
-        //     toast('Your product added')
-        // }
+        if (loading) {
+            return <Loading></Loading>
+        }
     };
 
 
@@ -49,7 +38,7 @@ const AddItem = () => {
                 <input className='mb-3' placeholder='Product Name' {...register("name", { required: true, maxLength: 20 })} />
                 <input className='mb-3' placeholder='Supplier name' {...register("supplierName")} />
                 <input className='mb-3' placeholder='Price' type="number" {...register("price")} />
-                <input className='mb-3' placeholder='Quantity' type="number" {...register("quantity", { min: 1, max: 99 })} />
+                <input className='mb-3' placeholder='Quantity' type="number" {...register("quantity", { min: 1, max: 1000 })} />
                 <input className='mb-3' placeholder='Photo URL' type="text" {...register("picture")} />
                 <textarea className='mb-3' placeholder='Description' {...register("description")} />
                 <input className='add-btn' type="submit" value='Add Product' />
