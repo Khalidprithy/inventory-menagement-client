@@ -20,7 +20,7 @@ const ShowMyProduct = ({ product, handleDeleteBtn }) => {
                         <p>{product?.quantity}</p>
                     </div>
                 </td>
-                <td className='d-none d-md-block'>{product?.supplierName}</td>
+                <td className='d-none d-md-block border-bottom-0'>{product?.supplierName}</td>
                 <td>
                     <button
                         onClick={() => handleDeleteBtn(id)}

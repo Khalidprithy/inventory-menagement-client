@@ -1,4 +1,6 @@
 import React from 'react';
+import { AiFillPhone, AiOutlineMail } from 'react-icons/ai';
+import { FaAddressBook } from 'react-icons/fa';
 
 const Footer = () => {
     return (
@@ -8,16 +10,15 @@ const Footer = () => {
                     <div className="container text-center text-md-start mt-5">
                         <div className="row mt-3">
                             <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-
                                 <h6 className="text-uppercase fw-bold mb-4">
-                                    <i className="fas fa-gem me-3"></i>Modern and Minimal
+                                    <i className="me-3"></i>Modern & Minimal
                                 </h6>
                                 <p>
                                     Quality formal and casual products for every occasion.
                                 </p>
                             </div>
                             <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-                                <h6 className="text-uppercase fw-bold mb-4">
+                                <h6 className="text-uppercase mb-4">
                                     Products
                                 </h6>
                                 <p>
@@ -35,7 +36,7 @@ const Footer = () => {
                             </div>
 
                             <div className="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-                                <h6 className="text-uppercase fw-bold mb-4">
+                                <h6 className="text-uppercase mb-4">
                                     Useful links
                                 </h6>
                                 <p>
@@ -53,16 +54,16 @@ const Footer = () => {
                             </div>
 
                             <div className="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-                                <h6 className="text-uppercase fw-bold mb-4">
+                                <h6 className="text-uppercase mb-4">
                                     Contact
                                 </h6>
-                                <p><i className="fas fa-home me-3"></i> Harbin, HR 87452, Bangladesh</p>
+                                <p><FaAddressBook></FaAddressBook> Harbin, HR 87452, Bangladesh</p>
                                 <p>
-                                    <i className="fas fa-envelope me-3"></i>
-                                    mnm@gmail.com
+
+                                    <AiOutlineMail></AiOutlineMail> mnm@gmail.com
                                 </p>
-                                <p><i className="fas fa-phone me-3"></i> +88 234 567 88</p>
-                                <p><i className="fas fa-print me-3"></i>+88 234 567 58</p>
+                                <p><AiFillPhone></AiFillPhone> +88 234 567 88</p>
+                                <p><AiFillPhone></AiFillPhone>+88 234 567 58</p>
                             </div>
                         </div>
                     </div>

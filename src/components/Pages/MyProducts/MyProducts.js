@@ -21,7 +21,6 @@ const MyProducts = () => {
                 .then(data => {
                     setMyProducts(data)
                 })
-
         }
         getMyProducts()
     }, [user])
@@ -48,7 +47,7 @@ const MyProducts = () => {
 
     return (
         <div>
-            <h4 className='text-center fw-bold m-2 text-info'>I have added {myProducts.length} product</h4>
+            <h4 className='text-center fw-bold m-2 text-info'>You have added {myProducts?.length} product</h4>
             <div>
                 <table className="table m-2">
                     <thead>

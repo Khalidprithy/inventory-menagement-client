@@ -14,6 +14,10 @@
     height: 100px;
     width: 150px;
 }
+
+.banner-text{
+    width: 400px;
+}
 .app-title{
     color: #9AE8FF;
 }
@@ -40,5 +44,8 @@
 @media only screen and (max-width: 600px) {
     .banner-container {
       grid-template-columns: 1fr;
+    }
+    .banner-text{
+        width: 300px;
     }
   }
