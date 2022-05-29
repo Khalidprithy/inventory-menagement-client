@@ -12,7 +12,7 @@ const AddItem = () => {
     const { register, handleSubmit } = useForm();
     const onSubmit = product => {
         console.log(product)
-        axios.post(`http://localhost:5000/products`, product)
+        axios.post(`https://protected-journey-17273.herokuapp.com/products`, product)
             .then(response => {
                 const { data } = response;
                 if (data.insertedId) {

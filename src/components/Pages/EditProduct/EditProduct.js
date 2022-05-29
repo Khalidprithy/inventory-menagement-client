@@ -10,7 +10,7 @@ const EditProduct = () => {
     const [product, setProduct] = useState({});
 
     useEffect(() => {
-        const url = `http://localhost:5000/products/${id}`;
+        const url = `https://protected-journey-17273.herokuapp.com/products/${id}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setProduct(data))
@@ -37,7 +37,7 @@ const EditProduct = () => {
                 picture: product.picture
             }
             setProduct(updatedProduct)
-            const url = `http://localhost:5000/products/${id}`;
+            const url = `https://protected-journey-17273.herokuapp.com/products/${id}`;
             fetch(url, {
                 method: 'PUT',
                 headers: {
@@ -66,7 +66,7 @@ const EditProduct = () => {
             picture: product.picture
         }
         setProduct(updatedProduct);
-        const url = `http://localhost:5000/products/${id}`;
+        const url = `https://protected-journey-17273.herokuapp.com/products/${id}`;
         await fetch(url, {
             method: 'PUT',
             headers: {

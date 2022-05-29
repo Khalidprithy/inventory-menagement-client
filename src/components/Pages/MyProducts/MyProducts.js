@@ -10,7 +10,7 @@ const MyProducts = () => {
     useEffect(() => {
         const getMyProducts = async () => {
             const email = user?.email;
-            const url = `http://localhost:5000/product?email=${email}`;
+            const url = `https://protected-journey-17273.herokuapp.com/product?email=${email}`;
             fetch(url, {
                 method: 'GET',
                 headers: {
@@ -30,7 +30,7 @@ const MyProducts = () => {
         const email = user?.email;
         const proceed = window.confirm('Are you sure?');
         if (proceed) {
-            const url = `http://localhost:5000/product?email=${email}`
+            const url = `https://protected-journey-17273.herokuapp.com/product?email=${email}`
             fetch(url, {
                 method: 'DELETE',
             })
@@ -46,7 +46,7 @@ const MyProducts = () => {
     }
 
     return (
-        <div>
+        <div className='mx-3'>
             <h4 className='text-center fw-bold m-2 text-info'>You have added {myProducts?.length} product</h4>
             <div>
                 <table className="table m-2">

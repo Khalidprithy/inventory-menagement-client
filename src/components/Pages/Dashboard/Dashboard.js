@@ -2,6 +2,7 @@ import React from 'react';
 import Banner from '../Banner/Banner';
 import LoadProducts from '../LoadProducts/LoadProducts';
 import SellsChart from '../SellsChart/SellsChart';
+import Testimonial from '../Testimonial/Testimonial';
 
 const Dashboard = () => {
 
@@ -10,6 +11,7 @@ const Dashboard = () => {
             <Banner></Banner>
             <SellsChart></SellsChart>
             <LoadProducts></LoadProducts>
+            <Testimonial></Testimonial>
         </div>
     );
 };

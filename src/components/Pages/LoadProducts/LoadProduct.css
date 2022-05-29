@@ -1,13 +1,14 @@
 .manage-btn{
     color: white;
     font-size: 14px;
-    background-color:  #32BDEA;
+    background-color: #09a3d6;
     border: none;
     border-radius: 5px;
-    padding: 4px 4px;
+    padding: 4px 6px;
 }
 
 .manage-btn:hover{
-    background-color: #09a3d6;
     color: white;
+    background-color: #FF7E41;
+    border-radius: 20px;
 }

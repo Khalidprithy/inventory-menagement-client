@@ -14,7 +14,7 @@ const ShowMyProduct = ({ product, handleDeleteBtn }) => {
                         <p className='description'>{product?.description}</p>
                     </div>
                 </td>
-                <td>{product?.price}</td>
+                <td>${product?.price}</td>
                 <td>
                     <div className='d-flex align-items-center'>
                         <p>{product?.quantity}</p>

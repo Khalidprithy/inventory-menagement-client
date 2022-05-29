@@ -21,7 +21,7 @@ const ShowAllProducts = ({ product, handleDeleteBtn }) => {
                         <p className='description'>{product?.description}</p>
                     </div>
                 </td>
-                <td>{product?.price}</td>
+                <td>${product?.price}</td>
                 <td>
                     <p>{product?.quantity}</p>
 

@@ -30,7 +30,7 @@ const Login = () => {
         const email = e.target.email.value;
         const password = e.target.password.value;
         await signInWithEmailAndPassword(email, password);
-        const { data } = await axios.post('http://localhost:5000/login', { email });
+        const { data } = await axios.post('https://protected-journey-17273.herokuapp.com/login', { email });
         console.log(data)
         localStorage.setItem('accessToken', data.accessToken);
         navigate(from, { replace: true });

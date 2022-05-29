@@ -91,6 +91,7 @@ const data2 = [
 const SellsChart = () => {
     return (
         <div className='container'>
+            <h4 className='text-center fw-bold text-info m-4'>Our Business States</h4>
             <div className="row row-cols-1 row-cols-md-2 g-4">
                 <div className="col">
                     <div className='border rounded-3'>

@@ -17,7 +17,7 @@ const Inventory = () => {
     const handleDeleteBtn = id => {
         const proceed = window.confirm('Are you sure?');
         if (proceed) {
-            const url = `http://localhost:5000/products/${id}`
+            const url = `https://protected-journey-17273.herokuapp.com/products/${id}`
             fetch(url, {
                 method: 'DELETE',
             })
@@ -33,7 +33,7 @@ const Inventory = () => {
     return (
         <div className='m-4'>
             <div className='d-flex justify-content-between align-items-center m-2' >
-                <h4 className='ms-4'>Product List</h4>
+                <h4 className='ms-4 text-info'>Product List</h4>
                 <button
                     onClick={handleAddProduct}
                     className='manage-btn'><AiOutlinePlus></AiOutlinePlus> Add Product</button>

@@ -6,10 +6,11 @@
     margin-left: 10px;
     border: none;
     border-radius: 5px;
-    padding: 4px 4px;
+    padding: 4px 6px;
 }
 
 .btn-style:hover{
-    background-color: #1fa3cf;
+    background-color:  #FF7E41;
     color: white;
+    border-radius: 20px;
 }
