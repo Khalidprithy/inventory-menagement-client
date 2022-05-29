@@ -21,7 +21,7 @@ const LoadProducts = () => {
                     <h4 className='ms-4'>Top Products</h4>
                     <button
                         onClick={handleShowAll}
-                        className='manage-btn'>Manage Inventory <TiArrowRightThick></TiArrowRightThick></button>
+                        className='manage-btn'>All Products <TiArrowRightThick></TiArrowRightThick></button>
                 </div>
                 <table className="table table-hover">
                     <thead>
@@ -41,6 +41,12 @@ const LoadProducts = () => {
                         ></ShowProducts>)
                     }
                 </table>
+                <div className='text-center m-2'>
+                    <button
+                        onClick={handleShowAll}
+                        className='manage-btn'>Manage Inventory <TiArrowRightThick></TiArrowRightThick></button>
+                </div>
+
             </div>
         </div>
     );

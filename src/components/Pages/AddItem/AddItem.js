@@ -3,9 +3,8 @@ import { useForm } from "react-hook-form";
 import { useAuthState } from 'react-firebase-hooks/auth';
 import './AddItem.css'
 import auth from '../../../firebase.init';
-import { toast } from 'react-toastify';
-import { ToastContainer } from 'react-bootstrap';
 import axios from 'axios';
+import toast from 'react-hot-toast';
 
 const AddItem = () => {
     const [user, loading, error] = useAuthState(auth);
@@ -16,8 +15,7 @@ const AddItem = () => {
             .then(response => {
                 const { data } = response;
                 if (data.insertedId) {
-                    toast('Product added')
-                    alert('Your product added')
+                    toast('Your product added')
                 }
 
             })
@@ -46,7 +44,6 @@ const AddItem = () => {
             <form
                 onSubmit={handleSubmit(onSubmit)}
                 className='d-flex flex-column w-50 mx-auto'>
-
                 <input className='mb-3' value={user?.displayName} {...register("name", { required: true })} />
                 <input className='mb-3' value={user?.email} {...register("email", { required: true })} />
                 <input className='mb-3' placeholder='Product Name' {...register("name", { required: true, maxLength: 20 })} />
@@ -56,7 +53,6 @@ const AddItem = () => {
                 <input className='mb-3' placeholder='Photo URL' type="text" {...register("picture")} />
                 <textarea className='mb-3' placeholder='Description' {...register("description")} />
                 <input className='add-btn' type="submit" value='Add Product' />
-                <ToastContainer></ToastContainer>
             </form>
         </div>
     );

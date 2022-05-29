@@ -1,14 +1,11 @@
-import { async } from '@firebase/util';
 import React, { useRef } from 'react';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import SocialLogin from '../SocialLogin/SocialLogin';
-import { ToastContainer, toast } from 'react-toastify';
-
-import 'react-toastify/dist/ReactToastify.css';
 import './Login.css'
 import Loading from '../../Shared/Loading/Loading';
+import toast from 'react-hot-toast';
 
 const Login = () => {
     const emailRef = useRef('');
@@ -38,7 +35,7 @@ const Login = () => {
         const email = emailRef.current.value;
         if (email) {
             await sendPasswordResetEmail(email);
-            toast('Email sent')
+            toast.success('Email sent')
         }
     }
 
@@ -55,7 +52,7 @@ const Login = () => {
     }
 
     return (
-        <div className='login mx-auto'>
+        <div className='login mx-auto my-4'>
             <div className="container">
                 <h4 className='text-center'>Login</h4>
                 <p>Login to use all features</p>
@@ -76,7 +73,6 @@ const Login = () => {
                 </form>
                 <p className=''>Don't have an Account? <Link to='/signup' className='text-decoration-none login-text'>Sign Up</Link></p>
                 <SocialLogin></SocialLogin>
-                <ToastContainer></ToastContainer>
             </div>
         </div >
     );

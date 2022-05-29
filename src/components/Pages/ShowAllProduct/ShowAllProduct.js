@@ -1,5 +1,5 @@
 import React from 'react';
-import { AiFillDelete, AiFillEdit, AiOutlinePlusSquare, AiOutlineMinusSquare } from 'react-icons/ai';
+import { AiFillDelete, AiFillEdit } from 'react-icons/ai';
 import { BiShowAlt } from 'react-icons/bi';
 import { useNavigate } from 'react-router-dom';
 
@@ -23,15 +23,12 @@ const ShowAllProducts = ({ product, handleDeleteBtn }) => {
                 </td>
                 <td>{product?.price}</td>
                 <td>
-                    <div className='d-flex align-items-center'>
-                        <p>{product?.quantity}</p>
-                        <button className='btn btn-link p-0'><AiOutlinePlusSquare className='text-dark mb-3 '></AiOutlinePlusSquare> </button>
-                        <button className='btn btn-link p-0'><AiOutlineMinusSquare className='text-dark mb-3'></AiOutlineMinusSquare> </button>
-                    </div>
+                    <p>{product?.quantity}</p>
+
                 </td>
                 <td>{product?.supplierName}</td>
                 <td>
-                    <div>
+                    <div className='d-flex'>
                         <button className='btn btn-link p-0'><BiShowAlt
                             onClick={() => handleEditBtn(_id)}
                             className='text-success me-2'></BiShowAlt></button>
@@ -42,9 +39,6 @@ const ShowAllProducts = ({ product, handleDeleteBtn }) => {
                             onClick={() => handleDeleteBtn(_id)}
                             className='text-danger me-2'></AiFillDelete></button>
                     </div>
-                </td>
-                <td>
-                    <button className='deliver-btn'>Delivered</button>
                 </td>
             </tr>
         </tbody>

@@ -1,6 +1,6 @@
 import React from 'react';
 import './ShowProduct.css'
-import { AiFillEdit, AiOutlinePlusSquare, AiOutlineMinusSquare } from 'react-icons/ai';
+import { AiFillEdit } from 'react-icons/ai';
 import { useNavigate } from 'react-router-dom';
 
 const ShowProducts = ({ product }) => {
@@ -11,8 +11,6 @@ const ShowProducts = ({ product }) => {
     const handleEditBtn = id => {
         navigate(`/products/${id}`);
     }
-
-
     return (
         <tbody>
             <tr>
@@ -26,9 +24,7 @@ const ShowProducts = ({ product }) => {
                 <td>{product?.price}</td>
                 <td>
                     <div className='d-flex align-items-center'>
-                        <p>{product?.quantitiy}</p>
-                        <button className='btn btn-link p-0'><AiOutlinePlusSquare className='text-dark mb-3 '></AiOutlinePlusSquare> </button>
-                        <button className='btn btn-link p-0'><AiOutlineMinusSquare className='text-dark mb-3'></AiOutlineMinusSquare> </button>
+                        <p>{product?.quantity}</p>
                     </div>
                 </td>
                 <td>{product?.supplierName}</td>

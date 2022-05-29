@@ -2,22 +2,19 @@ import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import './EditProduct.css'
 import { AiFillEdit } from 'react-icons/ai';
-import axios from 'axios';
-import { toast } from 'react-toastify';
+import toast from 'react-hot-toast';
 
 const EditProduct = () => {
 
     const { id } = useParams();
     const [product, setProduct] = useState({});
-    const [quantity, setQuantity] = useState([]);
 
     useEffect(() => {
         const url = `http://localhost:5000/products/${id}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setProduct(data))
-    }, []);
-
+    }, [id]);
 
 
     const handleRestock = event => {
@@ -25,17 +22,21 @@ const EditProduct = () => {
         const quantity = product.quantity;
         const inputQuantity = event.target.newQuantity.value;
         if (inputQuantity < 1) {
-            alert('Please Enter a positive number (1 or 1<)')
+            toast.error('Please Enter a positive number')
             return;
         }
         else {
-            const updatedQuantityInt = parseInt(quantity) + parseInt(inputQuantity);
+            const updatedQuantity = JSON.parse(quantity) + JSON.parse(inputQuantity);
 
-            const updatedQuantity = updatedQuantityInt + '';
-
-            const updatedProduct = { updatedQuantity }
-            console.log(updatedProduct)
-
+            const updatedProduct = {
+                name: product.name,
+                price: product.price,
+                quantity: (updatedQuantity).toString(),
+                supplierName: product.supplierName,
+                description: product.description,
+                picture: product.picture
+            }
+            setProduct(updatedProduct)
             const url = `http://localhost:5000/products/${id}`;
             fetch(url, {
                 method: 'PUT',
@@ -47,10 +48,39 @@ const EditProduct = () => {
                 .then(res => res.json())
                 .then(data => {
                     console.log(data)
-                    alert('Product Updated')
+                    toast.success('Product Updated');
+                    event.target.reset();
                 })
         }
     }
+    const handleDelivered = async event => {
+        event.preventDefault()
+        const quantity = product.quantity;
+        const updatedQuantity = JSON.parse(quantity) - 1;
+        const updatedProduct = {
+            name: product.name,
+            price: product.price,
+            quantity: (updatedQuantity).toString(),
+            supplierName: product.supplierName,
+            description: product.description,
+            picture: product.picture
+        }
+        setProduct(updatedProduct);
+        const url = `http://localhost:5000/products/${id}`;
+        await fetch(url, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(updatedProduct)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                toast.success('Product Delivered')
+            })
+    }
+
 
 
 
@@ -83,6 +113,7 @@ const EditProduct = () => {
                                 </div>
                             </form>
                             <button
+                                onClick={handleDelivered}
                                 className='btn-style'>Delivered</button>
                         </div>
                     </div>
