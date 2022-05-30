@@ -25,8 +25,7 @@ const MyProducts = () => {
         getMyProducts()
     }, [user])
 
-    const handleDeleteBtn = (id) => {
-        console.log(id)
+    const handleDeleteBtn = () => {
         const email = user?.email;
         const proceed = window.confirm('Are you sure?');
         if (proceed) {
@@ -37,10 +36,6 @@ const MyProducts = () => {
                 .then(res => res.json())
                 .then(data => {
                     console.log(data)
-                    if (data.deletedCount > 0) {
-                        const remaining = myProducts.filter(product => product._id !== id);
-                        setMyProducts(remaining);
-                    }
                 })
         }
     }

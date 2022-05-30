@@ -3,7 +3,7 @@ import { AiFillDelete } from 'react-icons/ai';
 
 const ShowMyProduct = ({ product, handleDeleteBtn }) => {
 
-    const { id } = product;
+    const { _id } = product;
     return (
         <tbody>
             <tr>
@@ -23,7 +23,7 @@ const ShowMyProduct = ({ product, handleDeleteBtn }) => {
                 <td className='d-none d-md-block border-bottom-0'>{product?.supplierName}</td>
                 <td>
                     <button
-                        onClick={() => handleDeleteBtn(id)}
+                        onClick={() => handleDeleteBtn(_id)}
                         className='btn btn-link'><AiFillDelete className='text-danger'></AiFillDelete></button>
                 </td>
             </tr>
