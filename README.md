@@ -8,7 +8,7 @@ This is a ReactJS app
 [client](https://inventory-management-app-679a4.web.app/)
 
 ## Documentation
-This is a react application build for a software developer & youtuber. In this website I have featured the courses he offers and also a shop for his fan to buy some of his products. 
+This is a react application build for Modern and Minimal shop's inventory management. 
 ## Features used Client side
 - React
 - React Icon 
